@@ -1,0 +1,5 @@
+@import "@material/tab/mdc-tab";
+
+.mdc-tab--app-bar{
+    @include mdc-tab-text-label-color(white);
+}

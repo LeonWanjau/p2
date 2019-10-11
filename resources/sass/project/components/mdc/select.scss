@@ -1,0 +1,9 @@
+@import "@material/select/mdc-select";
+
+.mdc-select--flex{
+    display:flex;
+}
+
+.mdc-select--validation-text-color{
+    @include mdc-select-helper-text-color($text-validation-color);
+}

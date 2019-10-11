@@ -1,0 +1,16 @@
+@import "@material/card/mdc-card";
+
+.mdc-card--user-search{
+    align-self:center;
+    padding:0.5em;
+    margin:0 10% 1em;
+}
+
+.mdc-card--modal-form{
+    position:fixed;
+    top:10%;
+    bottom:10%;
+    left:33%;
+    right:33%;
+}
+

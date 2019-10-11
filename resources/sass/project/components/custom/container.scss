@@ -1,0 +1,26 @@
+.container{
+    display:flex;
+    flex-direction:column;
+    padding:1em 0.5em 0.5em 0.5em;
+    width:100%;
+}
+
+.container--view-users{
+    padding:1em;
+    margin:1%;
+    background-color:$mdc-theme-surface;
+    border-radius:4px;
+}
+
+.container--account-information{
+    padding:1.5em 0.5em;
+    flex-direction:row;
+    justify-content:space-between;
+    border-bottom:1px solid black;
+    width:auto;
+    margin:1%;
+}
+
+.container--account-information:hover{
+    background-color:gray;
+}

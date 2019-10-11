@@ -1,0 +1,1 @@
+import style from "../../../sass/project/authentication/password_reset_status_page.scss";

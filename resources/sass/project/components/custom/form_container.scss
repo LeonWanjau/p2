@@ -1,0 +1,15 @@
+.form-container{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-container--card{
+    padding:0.5em;
+}
+
+.form-container--user-search{
+    flex-direction:row;
+    padding:0.5em;
+    align-items:center;
+    justify-content:flex-end;
+}

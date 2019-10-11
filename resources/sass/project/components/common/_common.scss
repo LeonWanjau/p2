@@ -1,0 +1,41 @@
+@import "./_variables.scss";
+@import "./_utility.scss";
+
+:root {
+   box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.body {
+    font-family: Helvetica, Arial, sans-serif;
+    /*background-image:linear-gradient(135deg,$gray,white,$light-gray);*/
+    background-image: linear-gradient(135deg, #fed8b1,white, #c3e4e8);
+    min-height:100vh;
+    margin-left:0;
+    margin-right:0;
+    margin-top:0;
+    margin-bottom:0;
+    height:100%;
+}
+
+
+
+.mdc-text-field>.mdc-text-field__input:-webkit-autofill,
+.mdc-text-field>.mdc-text-field__input:-webkit-autofill:hover, 
+.mdc-text-field>.mdc-text-field__input:-webkit-autofill:focus, 
+.mdc-text-field>.mdc-text-field__input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #f8f7f7 inset !important;
+    box-shadow: 0 0 0 30px #f8f7f7 inset !important;
+}
+
+
+.mdc-text-field--outlined>.mdc-text-field__input:-webkit-autofill,
+.mdc-text-field--outlined>.mdc-text-field__input:-webkit-autofill:hover, 
+.mdc-text-field--outlined>.mdc-text-field__input:-webkit-autofill:focus, 
+.mdc-text-field--outlined>.mdc-text-field__input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset !important;
+}

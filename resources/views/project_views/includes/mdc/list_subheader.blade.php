@@ -1,0 +1,1 @@
+<h6 class="mdc-list-group__subheader">{{$text}}</h6>

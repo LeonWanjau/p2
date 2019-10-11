@@ -1,0 +1,6 @@
+@import "@material/textfield/mdc-text-field";
+@import "@material/notched-outline/mdc-notched-outline";
+
+.mdc-text-field--validation-text-color{
+    @include mdc-text-field-helper-text-color($text-validation-color);
+}

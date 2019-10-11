@@ -1,0 +1,9 @@
+.container{
+    display:flex;
+    flex-direction:column;
+    padding:1em;
+    width:100%;
+    margin:1%;
+    border-radius:4px;
+    background-color:$mdc-theme-surface;
+}

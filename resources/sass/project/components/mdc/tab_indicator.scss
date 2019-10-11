@@ -1,0 +1,5 @@
+@import "@material/tab-indicator/mdc-tab-indicator";
+
+.mdc-tab-indicator--app-bar{
+    @include mdc-tab-indicator-underline-color(white);
+}
