@@ -19,7 +19,15 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check()) {
            // return redirect('/home');
-           return redirect(route('home.show'));
+           //return redirect(route('home.show'));
+           if (Auth::user() != null) {
+            $user_role_id = Auth::user()->role_id;
+            if ($user_role_id == 1) {
+                return redirect(route('schedule.view'));
+            } else if ($user_role_id == 2) {
+                return redirect(route('users.view', ['user_type' => 'admins']));
+            }
+        }
         }
 
         return $next($request);

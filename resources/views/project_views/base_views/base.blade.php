@@ -2,7 +2,6 @@
 
 <head>
     <title>@yield('title')</title>
-
 </head>
 
 <body style="visibility: hidden;" class="body">

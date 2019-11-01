@@ -16,12 +16,12 @@
             <div class="mdc-drawer__content">
                 <nav class="mdc-list" id="list">
                     <h6 class="heading heading--sidebar">
-                        <i class="material-icons" aria-hidden="true">person</i> My Account
+                        <i class="fas fa-user-circle"></i> My Account
                     </h6>
                     <div class="mdc-list-group">
                         @foreach($account_list as $list)
                             <a class="mdc-list-item ripple-surface @if($list['active'] != null){{'mdc-list-item--activated'}}@endif"
-                                href="#" aria-current="page">
+                                href="#" aria-current="page" section="account">
                                 <span class="mdc-list-item__text">{{ $list['text'] }}</span>
                             </a>
                         @endforeach
@@ -30,20 +30,29 @@
             </div>
         </aside>
 
+        <script type="module">
+            var account_drawer=document.querySelector('.mdc-drawer')
+
+            account_drawer.addEventListener('click',function(e){
+
+                let link_text=e.target.children[0].innerText;
+                let link_section=e.target.getAttribute('section');
+
+                if(link_section='account'){
+
+                    if(link_text=='View Account'){
+                        window.location.href="{{ route('account.view') }}"
+                    } else if(link_text=='Edit Account'){
+                        window.location.href="{{ route('account.edit.show') }}"
+                    }
+            }
+            })
+        </script>
+
     @endslot
 
     @slot('main_content')
         {{$main_content ?? null}}
-
-        <script type="module">
-            /*
-            var mdc_drawer_account_list=mdc_components.list.list[1]
-            mdc_drawer_account_list.listen('MDCList:action',function(event){
-                let index=event.detail.index
-                mdc_drawer_account_list.selectedIndex=index
-            })
-            */
-        </script>
     @endslot
 
 @endgeneral

@@ -26,7 +26,7 @@ class EditAccount extends FormRequest
         return [
             'f_name'=>'required|min:3',
             'l_name'=>'required|min:3',
-            'phone_number'=>'required|integer',
+            'phone_number'=>'required|numeric',
             'email'=>'required|email',
         ];
     }

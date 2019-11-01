@@ -18,7 +18,14 @@ class ResetPasswordController extends Controller
 
     public function redirectTo()
     {
-        return route('home.show');
+        if (Auth::user() != null) {
+            $user_role_id = Auth::user()->role_id;
+            if ($user_role_id == 1) {
+                return route('schedule.view');
+            } else if ($user_role_id == 2) {
+                return route('users.view', ['user_type' => 'admins']);
+            }
+        }
     }
 
     public function showPasswordResetForm(Request $request, $token = null)

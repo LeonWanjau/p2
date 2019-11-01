@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\RedirectsUsers;
+use Illuminate\Support\Facades\Auth;
 
 
 class VerificationController extends Controller
@@ -14,7 +15,14 @@ class VerificationController extends Controller
 
     public function redirectTo()
     {
-        return route('home.show');
+        if (Auth::user() != null) {
+            $user_role_id = Auth::user()->role_id;
+            if ($user_role_id == 1) {
+                return route('schedule.view');
+            } else if ($user_role_id == 2) {
+                return route('users.view', ['user_type' => 'admins']);
+            }
+        }
     }
 
     public function showVerificationPage(Request $request)

@@ -29,7 +29,7 @@ class CreateAccount extends FormRequest
          'first_name'=>'min:3|required',
          'last_name'=>'min:3|required',
          'email'=>'required|email|unique:users',
-         'phone_number'=>'required|numeric',
+         'phone_number'=>'required|numeric|unique:users',
          'password'=>'required|min:6',
          'role'=>'present'
          

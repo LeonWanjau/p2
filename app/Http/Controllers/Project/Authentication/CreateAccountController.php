@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Project\Authentication;
 
 use App\Http\Controllers\Controller;
@@ -13,8 +14,16 @@ class CreateAccountController extends Controller
 {
     use RedirectsUsers;
 
-    public function redirectTo(){
-        return route('home.show');
+    public function redirectTo()
+    {
+        if (Auth::user() != null) {
+            $user_role_id = Auth::user()->role_id;
+            if ($user_role_id == 1) {
+                return route('schedule.view');
+            } else if ($user_role_id == 2) {
+                return route('users.view', ['user_type' => 'admins']);
+            }
+        }
     }
 
     public function showCreateAccountForm()
@@ -22,8 +31,9 @@ class CreateAccountController extends Controller
         return view('project_views.authentication_views.create_account');
     }
 
-    public function createAccount(CreateAccount $request){
-        $data=$request->all();
+    public function createAccount(CreateAccount $request)
+    {
+        $data = $request->all();
 
         if ($data['role'] == 'teacher') {
             $role_id = 1;

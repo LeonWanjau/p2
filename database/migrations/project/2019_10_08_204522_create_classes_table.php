@@ -18,7 +18,6 @@ class CreateClassesTable extends Migration
             $table->string('class_name');
             $table->integer('teacher_id')->unsigned();
             $table->integer('number_of_students');
-            $table->date('year');
 
             $table->foreign('teacher_id')->references('id')->on('users')
             ->onDelete('cascade')->onUpdate('cascade');

@@ -15,8 +15,17 @@ module.exports = [{
     //general_component:['./resources/js/project/components/blade_components/general.js']
     //view_users_page:['./resources/js/project/users/view_users_page.js']
     //fonts:['./resources/js/project/fonts/fonts.js']
-    scheduler:['./resources/js/project/components/scheduler/scheduler.js']
-    
+    //scheduler:['./resources/js/project/components/scheduler/scheduler.js']
+    //data_table:['./resources/js/project/components/data_table/data_table.js']
+    //view_parents_page:['./resources/js/project/parents/view_parents_page.js']
+    //view_students_page:['./resources/js/project/students/view_students_page.js']
+    //view_classes_page:['./resources/js/project/students/view_classes_page.js']
+    //view_parents_messages_received_page:['./resources/js/project/messages/view_parents_messages_received.js']
+    //view_parents_messages_sent_page:['./resources/js/project/messages/view_parents_messages_sent.js']
+    view_teachers_messages_sent_page:['./resources/js/project/messages/view_teachers_messages_sent.js']
+    //view_teachers_page:['./resources/js/project/users/view_teachers_page.js']
+    //view_admins_page:['./resources/js/project/users/view_admins_page.js']
+    //verify_user_page: ['./resources/js/project/authentication/verify_user_page.js']
   },
   output: {
     // This is necessary for webpack to compile
@@ -32,7 +41,15 @@ module.exports = [{
     /*Fonts*/
     //path: path.resolve(__dirname, 'public/js/project/fonts')
     /*Scheduler*/
-    path: path.resolve(__dirname, 'public/js/project/scheduler')
+    //path: path.resolve(__dirname, 'public/js/project/scheduler')
+    /*Data Table*/
+    //path: path.resolve(__dirname, 'public/js/project/data_table')
+    /*Parents pages*/
+    //path: path.resolve(__dirname, 'public/js/project/parents')
+    /*Students pages*/
+    //path: path.resolve(__dirname, 'public/js/project/students')
+    /*Messages pages*/
+    path: path.resolve(__dirname, 'public/js/project/messages')
   },
   module: {
     rules: [
@@ -109,11 +126,7 @@ module.exports = [{
     ]
   },
 
-  plugins:[
-    new webpack.ProvidePlugin({
-      'utils': 'utils'
-    })
-  ],
+ 
 
   mode: 'development',
 }];

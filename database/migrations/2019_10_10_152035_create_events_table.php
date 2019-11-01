@@ -22,9 +22,13 @@ class CreateEventsTable extends Migration
             $table->string('rec_type')->nullable();
             $table->bigInteger('event_length')->nullable()->default(null);;
             $table->string('event_pid')->nullable();
+            $table->integer('parent_id')->unsigned()->nullable();
             $table->timestamps();
 
             $table->foreign('teacher_id')->references('id')->on('users')
+                ->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('parent_id')->references('id')->on('parents')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }

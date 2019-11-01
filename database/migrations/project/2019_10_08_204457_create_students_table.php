@@ -19,9 +19,15 @@ class CreateStudentsTable extends Migration
             $table->string('l_name');
             $table->integer('age')->unsigned();
             $table->integer('class_id')->unsigned();
+            $table->integer('mother_id')->unsigned()->nullable();
+            $table->integer('father_id')->unsigned()->nullable();
 
-            $table->foreign('class_id')->references('id')->on('classes')
-                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('class_id')->references('id')
+                ->on('classes')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('mother_id')->references('id')
+                ->on('parents')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('father_id')->references('id')
+                ->on('parents')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

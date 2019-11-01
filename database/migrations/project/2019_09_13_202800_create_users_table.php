@@ -19,10 +19,11 @@ class CreateUsersTable extends Migration
             $table->string('f_name');
             $table->string('l_name');
             $table->string('email');
-            $table->integer('phone_number');
+            $table->string('phone_number');
             $table->integer('role_id')->unsigned();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
+            $table->dateTime('user_verified_at')->nullable();
 
             $table->foreign('role_id')->references('id')->on('user_roles')
                 ->onDelete('cascade')->onUpdate('cascade');

@@ -2,4 +2,6 @@
 
 .mdc-tab--app-bar{
     @include mdc-tab-text-label-color(white);
+    font-family:sans-serif;
 }
+

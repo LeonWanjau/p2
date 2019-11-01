@@ -40,7 +40,8 @@
 @endisset
                         mdc-tab--app-bar" role="tab" aria-selected="true" tabindex="0">
                         <span class="mdc-tab__content">
-                            <span class="mdc-tab__text-label">{{ $tab['title'] }}</span>
+                            <span
+                                class="mdc-tab__text-label mdc-typography">{{ $tab['title'] }}</span>
                         </span>
                         <span class="mdc-tab-indicator 
 @isset($tab['active'])
@@ -89,7 +90,7 @@
             <i class="fas fa-address-card mdc-list-item__graphic"></i>
             <span class="mdc-list-item__text">My Account</span>
         </a>
-        <a class="mdc-list-item" href="#">
+        <a class="mdc-list-item" href="{{route('logout')}}">
             <i class="fas fa-sign-out-alt mdc-list-item__graphic"></i>
             <span class="mdc-list-item__text">Logout</span>
         </a>
@@ -139,6 +140,54 @@
             top_app_bar_list_menu.classList.remove('mdc-menu-surface--open')
         }else{
             top_app_bar_list_menu.classList.add('mdc-menu-surface--open')
+        }
+    })
+
+    /*
+    var tab_bar=document.querySelector('.mdc-tab-bar')
+    tab_bar.addEventListener('click',function(e){
+        
+        if(e.target.children[0].innerText=='Teachers'){
+            window.location.href="route('schedule.view')"
+        }
+        
+       console.log(e.target)
+    })
+    */
+
+    var mdc_tab_bar=mdc_components.tab_bar.tab_bar[0]
+    mdc_tab_bar.listen('MDCTabBar:activated',function(e){
+        let index=e.detail.index;
+
+        if(mdc_tab_bar.tabList_.length==5){
+            if(index==1){
+                window.location.href="{{ route('schedule.view') }}"
+            }else if(index==4){
+                window.location.href="{{route('messages.parents.received.show')}}"
+            }else if(index==0){
+                window.location.href="{{route('users.view',['user_type'=>'teachers'])}}"
+            }else if(index==2){
+                window.location.href="{{route('parents.view')}}"
+            }else if(index==3){
+                window.location.href="{{route('students.view')}}"
+            }
+        }else if(mdc_tab_bar.tabList_.length==4){
+            if(index==0){
+                /*@auth*/
+                /*@if(Auth::user()->role_id==1)*/
+                window.location.href="{{ route('schedule.view') }}"
+                /*@endif*/
+                /*@if(Auth::user()->role_id==2)*/
+                window.location.href="{{route('users.view',['user_type'=>'teachers'])}}"
+                /*@endif*/
+                /*@endauth*/
+            }else if(index==1){
+                window.location.href="{{route('parents.view')}}"
+            }else if(index==2){
+                window.location.href="{{route('students.view')}}"
+            }else if(index==3){
+                window.location.href="{{route('messages.parents.received.show')}}"
+            }
         }
     })
 </script>

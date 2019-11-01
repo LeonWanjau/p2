@@ -33,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
         $account='project_views.components.account.';
         $parents='project_views.components.parents.';
         $teachers='project_views.components.teachers.';
+        $students='project_views.components.students.';
+        $messages='project_views.components.messages.';
 
         $components = [
             'general' => $general . 'general',
@@ -55,6 +57,8 @@ class AppServiceProvider extends ServiceProvider
             'account'=>$account.'account',
             'parents'=>$parents.'parents',
             'teachers'=>$teachers.'teachers',
+            'students'=>$students.'students',
+            'messages'=>$messages.'messages',
         ];
 
         foreach ($components as $component => $path) {
